@@ -13,7 +13,7 @@ import { Component, signal, computed } from '@angular/core';
   </div>
   <div class="row g-3">
     <div class="col-6 col-md-6 col-xl-4 mb-2">
-      <a class="board-card">
+      <a class="board-card" href="http://domussqlmvct/Reports_SINASPRO/browse/" target="_blank">
         <div class="board-icon">
           <img src="assets/icons/Icono_Sistema_Operativo_v2.png" alt="Icon" class="icon">
         </div>
