@@ -13,7 +13,7 @@ FROM nginx:stable-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copiamos los archivos de la app (ajusta la ruta según tu proyecto)
-COPY --from=builder /app/dist/browser /usr/share/nginx/html
+COPY --from=builder /app/dist/powerbi-admin/browser /usr/share/nginx/html
 
 EXPOSE 80
 
