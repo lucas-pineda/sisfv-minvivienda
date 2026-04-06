@@ -1,0 +1,137 @@
+<div class="container-fluid">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+      <div class="h5 mb-0">Administración</div>
+      <div class="text-muted">Gestión de tableros públicos (Power BI)</div>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="startCreate()">
+      <i class="bi bi-plus-circle me-1"></i>
+      Nuevo tablero
+    </button>
+  </div>
+
+  <div class="card shadow-sm mb-3">
+    <div class="card-body">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="h6 mb-0">{{ editing ? 'Editar tablero' : 'Crear tablero' }}</div>
+        <button class="btn btn-outline-secondary btn-sm" type="button" *ngIf="editing" (click)="cancel()">
+          Cancelar
+        </button>
+      </div>
+
+      <form class="row g-3" [formGroup]="form" (ngSubmit)="save()">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" formControlName="name" />
+          <div class="form-text text-danger" *ngIf="form.controls.name.touched && form.controls.name.invalid">
+            Obligatorio
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="form-label">URL pública</label>
+          <input type="url" class="form-control" formControlName="url" />
+          <div class="form-text text-danger" *ngIf="form.controls.url.touched && form.controls.url.invalid">
+            Obligatorio
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="form-label">Icono (Bootstrap Icons)</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi" [class]="form.value.icon || 'bi-grid'"></i>
+            </span>
+            <input type="text" class="form-control" formControlName="icon" placeholder="bi-house, bi-people, ..." />
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 d-flex align-items-end">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="showOnHome" formControlName="showOnHome" />
+            <label class="form-check-label" for="showOnHome">Mostrar en Inicio</label>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Descripción</label>
+          <input type="text" class="form-control" formControlName="description" />
+        </div>
+
+        <div class="col-12 d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary px-4">
+            <i class="bi bi-save me-1"></i>
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover mb-0 align-middle">
+          <thead class="table-light">
+            <tr>
+              <th style="width: 54px"></th>
+              <th>Nombre</th>
+              <th class="d-none d-lg-table-cell">Descripción</th>
+              <th class="text-center" style="width: 120px">Inicio</th>
+              <th style="width: 160px"></th>
+            </tr>
+          </thead>
+          <tbody *ngIf="boards$ | async as boards">
+            <tr *ngFor="let board of boards; trackBy: trackById">
+              <td class="text-center">
+                <span class="icon-pill">
+                  <i class="bi" [class]="board.icon || 'bi-grid'"></i>
+                </span>
+              </td>
+              <td>
+                <div class="fw-semibold">{{ board.name }}</div>
+                <div class="small text-muted">{{ board.description || 'Tablero público' }}</div>
+              </td>
+              <td class="d-none d-lg-table-cell">
+                <span class="text-muted">{{ board.description || '—' }}</span>
+              </td>
+              <td class="text-center">
+                <i class="bi" [class]="board.showOnHome ? 'bi-check-circle-fill text-success' : 'bi-dash-circle text-muted'"></i>
+              </td>
+              <td class="text-end">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Acciones">
+                  <a
+                    class="btn btn-outline-primary"
+                    [routerLink]="['/dashboard/tableros', board.id]"
+                    title="Ver"
+                    aria-label="Ver"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </a>
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    (click)="startEdit(board)"
+                    title="Editar"
+                    aria-label="Editar"
+                  >
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button
+                    class="btn btn-outline-danger"
+                    type="button"
+                    (click)="remove(board)"
+                    title="Eliminar"
+                    aria-label="Eliminar"
+                  >
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

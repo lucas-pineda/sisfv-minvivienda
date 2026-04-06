@@ -1,0 +1,67 @@
+<div class="barra-superior-govco">
+  <a href="https://www.gov.co/" target="_blank" rel=noopener
+    aria-label="Portal del Estado Colombiano - GOV.CO"></a>
+  <button class="idioma-btn-barra-superior-govco"
+    aria-label="Button to change the language of the page to English">
+  </button>
+</div>
+<div class="login-page d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #f0f2f5;">
+  <div class="container">
+    <div class="row g-0 border rounded-3 shadow overflow-hidden" style="min-height: 520px;">
+
+      <!-- Columna izquierda: formulario -->
+      <div class="col-md-4 d-flex flex-column justify-content-center align-items-center bg-white p-3">
+        <div class="text-center mb-4 w-100">
+          <img class="brand-logo logo-completo img-fluid mx-auto d-block" 
+            src="assets/img/LOGO_COMPLETO.png"
+            alt="Ministerio de Vivienda, Ciudad y Territorio" 
+            style="width: 600px;" />
+        </div>
+
+        <h5 class="mb-3 fw-semibold w-100">Iniciar sesión</h5>
+
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="w-100">
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Correo electrónico"
+              formControlName="email" autocomplete="username" />
+            <div class="form-text text-danger"
+              *ngIf="form.controls.email.touched && form.controls.email.invalid">
+              Obligatorio
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña"
+              formControlName="password" autocomplete="current-password" />
+            <div class="form-text text-danger"
+              *ngIf="form.controls.password.touched && form.controls.password.invalid">
+              Obligatorio
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <a class="app-link" href="javascript:void(0)">Registrarse</a>
+            <a class="app-link" href="javascript:void(0)">¿Olvidó su contraseña?</a>
+          </div>
+
+          <div class="alert alert-danger py-2" role="alert" *ngIf="errorMessage">
+            {{ errorMessage }}
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 py-2">
+            Ingresar
+          </button>
+        </form>
+      </div>
+
+      <!-- Columna derecha: imagen -->
+      <div class="col-md-8 p-0">
+        <img src="assets/img/fondo2.jpeg" 
+          alt="Fondo" 
+          class="w-100 h-100" 
+          style="object-fit: cover; display: block;" />
+      </div>
+
+    </div>
+  </div>
+</div>
