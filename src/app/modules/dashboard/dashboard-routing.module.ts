@@ -9,6 +9,8 @@ import { TablerosDivisComponent } from './pages/home/tableros-divis.component';
 import { TablerosSpatComponent } from './pages/home/tableros-spat.component';
 import { TablerosOapComponent } from './pages/home/tableros-oap.component';
 import { ConsultasExternasComponent } from './pages/home/consultas-externas.component';
+import { TablerosCreangelComponent } from './pages/home/tableros-creangel.component';
+import { TablerosAguaSaniamientoBasicoComponent } from './pages/home/tableros-aguasaniamientobasico.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,8 @@ const routes: Routes = [
       { path: 'tablerosdivis', component: TablerosDivisComponent },
       { path: 'tablerosspat', component: TablerosSpatComponent },
       { path: 'tablerosoap', component: TablerosOapComponent },
+      { path: 'tableroscreangel', component: TablerosCreangelComponent },
+      { path: 'tablerosaguasaniamientobasico', component: TablerosAguaSaniamientoBasicoComponent },
       { path: 'consultasexternas', component: ConsultasExternasComponent }
     ]
   }

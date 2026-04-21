@@ -12,6 +12,7 @@ import { TablerosDivisComponent } from './pages/home/tableros-divis.component';
 import { TablerosSpatComponent } from './pages/home/tableros-spat.component';
 import { TablerosOapComponent } from './pages/home/tableros-oap.component';
 import { ConsultasExternasComponent } from './pages/home/consultas-externas.component';
+import { TablerosCreangelComponent } from './pages/home/tableros-creangel.component';
 
 
 
@@ -25,6 +26,7 @@ import { ConsultasExternasComponent } from './pages/home/consultas-externas.comp
     TablerosDivisComponent,
     TablerosSpatComponent,
     TablerosOapComponent,
+    TablerosCreangelComponent, 
     ConsultasExternasComponent
   ],
   imports: [

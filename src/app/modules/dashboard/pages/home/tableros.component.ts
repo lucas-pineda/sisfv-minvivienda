@@ -71,6 +71,28 @@ import { Component, signal, computed } from '@angular/core';
         </div>
       </a>
 </div>
+      <div class="col-12">
+      <a class="board-card" [routerLink]="['../../dashboard/tablerosaguasaniamientobasico']">
+        <div class="board-icon">
+        <img src="assets/icons/AguaSaneamientoBasico.png" alt="Icon" class="icon">
+        </div>
+        <div class="board-info">
+          <div class="board-title">Agua y Saniamiento Básico</div>
+          <div class="board-desc text-muted">Agua y Saniamiento Básico</div>
+        </div>
+      </a>
+</div>
+      <div class="col-12">
+      <a class="board-card" [routerLink]="['../../dashboard/tableros/visor-vivienda-rural-nueva-para-la-planeacion-estrategica']">
+        <div class="board-icon">
+        <img src="assets/icons/Direccion-de-espacio-urbano-y-territorial-DEUT.png" alt="Icon" class="icon">
+        </div>
+        <div class="board-info">
+          <div class="board-title">Dirección de Espacio Urbano y Territorial DEUT</div>
+          <div class="board-desc text-muted">Dirección de Espacio Urbano y Territorial DEUT</div>
+        </div>
+      </a>
+</div>
   </div>
     </div> 
     <div class="col-6">
